@@ -65,6 +65,8 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		jurassicPark.setGenre(lstGenres.get(1));
 		jurassicPark.setDirector(stevenSpielberg);
 		jurassicPark.setListActors(actorsJurassicPark);
+		jurassicPark.setImage("https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg");
+		jurassicPark.setImage2("https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp");
 		lstMovies.add(jurassicPark);
 
 		Movie theFly = new Movie(2, "The Fly", 1986, 95,
@@ -72,6 +74,8 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		theFly.setGenre(lstGenres.get(1));
 		theFly.setDirector(davidCronenberg);
 		theFly.setListActors(actorsTheFly);
+		theFly.setImage("https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg");
+		theFly.setImage2("https://ggayane.github.io/css-experiments/cards/force_mage-character.webp");
 		lstMovies.add(theFly);
 
 		Movie theBFG = new Movie(3, "The BFG", 2016, 117,
@@ -79,6 +83,9 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		theBFG.setGenre(lstGenres.get(4));
 		theBFG.setDirector(stevenSpielberg);
 		theBFG.setListActors(actorsTheBFG);
+		theBFG.setImage("https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg");
+		theBFG.setImage2("https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp");
+		
 		lstMovies.add(theBFG);
 	}
 

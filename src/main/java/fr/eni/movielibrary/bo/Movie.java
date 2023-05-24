@@ -12,8 +12,10 @@ public class Movie {
 	private List<Participant> listActors;
 	private List<Opinion> listOpinions;
 	private Genre genre;
+	private String image;
+	private String image2;
 	
-	public Movie(long id, String title, int year, int duration, String synopsis, Participant director, List<Participant> listActors, List<Opinion> listOpinions, Genre genre) {
+	public Movie(long id, String title, int year, int duration, String synopsis, Participant director, List<Participant> listActors, List<Opinion> listOpinions, Genre genre, String image, String image2) {
 		this.id =id;
 		this.title = title;
 		this.year = year;
@@ -23,6 +25,8 @@ public class Movie {
 		this.listActors = listActors;
 		this.listOpinions = listOpinions;
 		this.genre = genre;
+		this.image = image;
+		this.image2 = image2;
 	}
 
 	public Movie(long id, String title, int year, int duration, String synopsis) {
@@ -33,8 +37,22 @@ public class Movie {
 		this.duration = duration;
 		this.synopsis = synopsis;
 	}
+	
+	public String getImage2() {
+		return image2;
+	}
 
+	public void setImage2(String image2) {
+		this.image2 = image2;
+	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public Genre getGenre() {
 		return genre;

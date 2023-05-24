@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <title>home</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page">
+      <div>
+        <h1>All Film</h1>
+      </div>
+    </div>
+      <div class="containerCard">
+        <div th:each="movie: ${movies}">
+          <a th:href="@{/detailMovie/{id}(id=${movie.id})}" alt="Mythrill" target="_blank">
+            <div class="card">
+              <div class="wrapper">
+                <img th:src="${movie.image}" class="cover-image" />
+              </div>
+              <div class="title">
+                <span th:text="${movie.title}"></span>
+                <div th:each="director: ${movie.director}">
+                  <span th:text="${director.lastName}"></span>
+                  <span th:text="${director.firstName}"></span>
+                </div>
+              </div>
+              <img th:src="${movie.image2}" class="character" />
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>
