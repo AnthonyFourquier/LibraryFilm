@@ -1,0 +1,87 @@
+@charset "ISO-8859-1";
+
+@charset "ISO-8859-1";
+
+* {
+  box-sizing: border-box;
+}
+  
+.page {
+	color: white;
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.form {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-content: center;
+	background: white;
+	width: 50%;
+	margin-left: 25%;
+	padding: 15px 15px 15px 15px;
+	border-radius: 5px;
+	padding-bottom: 20px;
+}
+
+.label, input {
+	text-decoration: none;
+	font-family: 'Playfair', serif;
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #191c29;
+}
+
+.label {
+	padding-bottom: 5px;
+}
+input {
+	border: none;
+	border-bottom: 1px solid #191c29;
+}
+
+input:focus {
+	border: none;
+	outline:none;
+	border-bottom: 1px solid #e74c3c;
+}
+textarea {
+	text-decoration: none;
+	font-family: 'Playfair', serif;
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #191c29;
+	border: none;
+	border-bottom: 1px solid #191c29;
+}
+textarea:focus {
+	border: none;
+	outline:none;
+	border-bottom: 1px solid #e74c3c;
+}
+
+.title, .duration, .year, .synopsis, .director {
+	display: flex;
+	flex-direction: column;
+	padding-top: 20px;
+}
+body {
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	justify-content: center;
+	align-items: center;
+	background: #191c29;
+}
+
+
+  
+

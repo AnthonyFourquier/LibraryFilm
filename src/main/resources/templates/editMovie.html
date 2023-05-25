@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <link th:href="@{/css/editMovie.css}" rel="stylesheet" />
+  <link th:href="@{/css/button.css}" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,wght@1,600&display=swap" rel="stylesheet">
+  <title>Edit Movie</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="page">
+      <div>
+        <h1>Edit Movie</h1>
+      </div>
+    </div>
+    <div class="form">
+      <form action="#" th:action="@{/formMovie}" th:object="${movie}" method="post">
+        <div class="title">
+          <div class="label">
+            Title :
+          </div>
+          <div class="value">
+            <input th:field="${movie.title}" />
+          </div>
+        </div>
+
+        <div class="director">
+          <div class="label">
+            Director :
+          </div>
+          <div>
+            <input th:field="${movie.director.lastName}" />
+            <input th:field="${movie.director.firstName}" />
+          </div>
+        </div>
+
+        <div class="year">
+          <div class="label">
+            Année :
+          </div>
+          <div>
+            <input th:field="${movie.year}">
+          </div>
+        </div>
+
+        <div class="duration">
+          <div class="label">
+            Durée :
+          </div>
+          <div>
+            <input th:field="${movie.duration}">
+          </div>
+        </div>
+
+        <div class="synopsis">
+          <div class="label">
+            Synopsis :
+          </div>
+          <div>
+            <textarea th:field="${movie.synopsis}" rows="5" cols="33"></textarea>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <div class="btnContainer">
+      <div class="btn1">
+        <a class="btn" style="--color:white;--border:2px;--slant:.5em"
+          th:href="@{/detailMovie/{id}(id=${movie.id})}">Retour</a>
+      </div>
+      <div class="btn2">
+        <a class="btn" style="--color:white;--border:2px;--slant:.5em" th:href="@{/}">Valider</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
