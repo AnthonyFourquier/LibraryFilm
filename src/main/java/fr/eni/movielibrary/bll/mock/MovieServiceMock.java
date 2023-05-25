@@ -65,8 +65,9 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		jurassicPark.setGenre(lstGenres.get(1));
 		jurassicPark.setDirector(stevenSpielberg);
 		jurassicPark.setListActors(actorsJurassicPark);
-		jurassicPark.setImage("https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg");
-		jurassicPark.setImage2("https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp");
+		jurassicPark.setImage("https://play-lh.googleusercontent.com/PAaK7re0Mw6SWtz8kxVO6h_xgYmPidgTVpCrGEhQjiOYqFpyfua6IH3V0peKwvbx1Vs");
+		jurassicPark.setImage2("https://i.pinimg.com/originals/24/0e/31/240e3151408a1f74d4373436d6620509.png");
+		
 		lstMovies.add(jurassicPark);
 
 		Movie theFly = new Movie(2, "The Fly", 1986, 95,
@@ -74,8 +75,8 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		theFly.setGenre(lstGenres.get(1));
 		theFly.setDirector(davidCronenberg);
 		theFly.setListActors(actorsTheFly);
-		theFly.setImage("https://ggayane.github.io/css-experiments/cards/force_mage-cover.jpg");
-		theFly.setImage2("https://ggayane.github.io/css-experiments/cards/force_mage-character.webp");
+		theFly.setImage("https://image.tmdb.org/t/p/original/8gZWMhJHRvaXdXsNhERtqNHYpH3.jpg");
+		theFly.setImage2("https://www.screamerscostumes.com/app/uploads/2021/10/26906-the-fly.png");
 		lstMovies.add(theFly);
 
 		Movie theBFG = new Movie(3, "The BFG", 2016, 117,
@@ -83,8 +84,8 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		theBFG.setGenre(lstGenres.get(4));
 		theBFG.setDirector(stevenSpielberg);
 		theBFG.setListActors(actorsTheBFG);
-		theBFG.setImage("https://ggayane.github.io/css-experiments/cards/dark_rider-cover.jpg");
-		theBFG.setImage2("https://ggayane.github.io/css-experiments/cards/dark_rider-character.webp");
+		theBFG.setImage("https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-bfg-(3d-telugu)-et00044439-17-04-2017-17-59-20.jpg");
+		theBFG.setImage2("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a504c732-2487-47cd-9380-d08f32a02454/da3uqgn-6aa3acda-1863-493b-835a-9e524a9718cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E1MDRjNzMyLTI0ODctNDdjZC05MzgwLWQwOGYzMmEwMjQ1NFwvZGEzdXFnbi02YWEzYWNkYS0xODYzLTQ5M2ItODM1YS05ZTUyNGE5NzE4Y2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QNrU-nm4OTyTUaGrDnYQWrrM4oKDzm_ToT3ZZxaKJRs");
 		
 		lstMovies.add(theBFG);
 	}

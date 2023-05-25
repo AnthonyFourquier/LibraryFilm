@@ -3,7 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <link th:href="@{/css/style.css}" rel="stylesheet" />
+  <link th:href="@{/css/detailMovie.css}" rel="stylesheet" />
+  <link th:href="@{/css/button.css}" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,wght@1,600&display=swap" rel="stylesheet">
   <title>Detail Movie</title>
 </head>
 
@@ -15,35 +19,40 @@
       </div>
     </div>
     <div class="containerCardDetail">
-      <a href="" alt="Mythrill" target="_blank">
+      <a href="" alt="Mythrill">
         <div class="card">
           <div class="wrapper">
             <img th:src="${movie.image}" class="cover-image" />
           </div>
           <div class="title">
-            <span th:text="${movie.title}"></span>
-            <div th:each="director: ${movie.director}">
+            <span th:text="${movie.title}" class="cardTitle"></span>
+            <div th:each="director: ${movie.director}" class="director">
               <span th:text="${director.lastName}"></span>
               <span th:text="${director.firstName}"></span>
             </div>
-            <div>
-              Année :
-              <span th:text="${movie.year}"></span>
-            </div>
-            <div>
-              Durée :
-              <span th:text="${movie.duration}"></span>
-            </div>
-            <div>
+            </br>
+            <div class="synopsis">
               Synopsis :
               <span th:text="${movie.synopsis}"></span>
             </div>
+            </br>
+            <div class="year">
+              Année :
+              <span th:text="${movie.year}"></span>
+            </div>
+            <div class="duration">
+              Durée :
+              <span th:text="${movie.duration}"></span>
+            </div>
           </div>
-          <img th:src="${movie.image2}" class="character" />
         </div>
       </a>
     </div>
+    <div class="btnContainer">
+      <a class="btn" style="--color:white;--border:2px;--slant:.5em" th:href="@{/}">Retour</a>
+    </div>
   </div>
+
 </body>
 
 </html>
