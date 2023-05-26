@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta charset="UTF-8">
-  <link th:href="@{/css/editMovie.css}" rel="stylesheet" />
-  <link th:href="@{/css/button.css}" rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair:ital,wght@1,600&display=swap" rel="stylesheet">
-  <title>Edit Movie</title>
-</head>
-
-<body>
+<div th:include="include/header"></div>
   <div class="container">
     <div class="page">
       <div>
@@ -19,7 +9,7 @@
       </div>
     </div>
     <div class="form">
-      <form action="#" th:action="@{/formMovie}" th:object="${movie}" method="post">
+      <form action="/movie" th:object="${formMovie}" method="post">
         <div class="title">
           <div class="label">
             Title :

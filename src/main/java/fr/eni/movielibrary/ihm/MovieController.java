@@ -7,11 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import fr.eni.movielibrary.bll.mock.MovieServiceMock;
+import fr.eni.movielibrary.bo.Member;
 import fr.eni.movielibrary.bo.Movie;
 
 @Controller
+@SessionAttributes({"loggedUser"})
 public class MovieController {
 	
 	@Autowired
@@ -19,7 +22,14 @@ public class MovieController {
 	
 	@GetMapping("/")
     public String homePage(Model model) {
+		
+		if ( model.getAttribute("loggedUser") != null) {
+			Member memberConnected = (Member) model.getAttribute("loggedUser");
+			model.addAttribute("member", memberConnected);
+		}
+		
         model.addAttribute("movies", movieServiceMock.getAllMovies());
+        
         return "home";
     }
 	

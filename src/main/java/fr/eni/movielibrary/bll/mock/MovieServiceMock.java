@@ -85,7 +85,8 @@ public class MovieServiceMock implements fr.eni.movielibrary.bll.MovieService {
 		theBFG.setDirector(stevenSpielberg);
 		theBFG.setListActors(actorsTheBFG);
 		theBFG.setImage("https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/the-bfg-(3d-telugu)-et00044439-17-04-2017-17-59-20.jpg");
-		theBFG.setImage2("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a504c732-2487-47cd-9380-d08f32a02454/da3uqgn-6aa3acda-1863-493b-835a-9e524a9718cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E1MDRjNzMyLTI0ODctNDdjZC05MzgwLWQwOGYzMmEwMjQ1NFwvZGEzdXFnbi02YWEzYWNkYS0xODYzLTQ5M2ItODM1YS05ZTUyNGE5NzE4Y2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QNrU-nm4OTyTUaGrDnYQWrrM4oKDzm_ToT3ZZxaKJRs");
+		theBFG.setImage2("https://r7.pngwing.com/path/714/912/969/the-bfg-film-youtube-bfg-8b2a923a2ee6f293d6a0ec2a08b215e6.png");
+		//theBFG.setImage2("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a504c732-2487-47cd-9380-d08f32a02454/da3uqgn-6aa3acda-1863-493b-835a-9e524a9718cd.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E1MDRjNzMyLTI0ODctNDdjZC05MzgwLWQwOGYzMmEwMjQ1NFwvZGEzdXFnbi02YWEzYWNkYS0xODYzLTQ5M2ItODM1YS05ZTUyNGE5NzE4Y2QucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.QNrU-nm4OTyTUaGrDnYQWrrM4oKDzm_ToT3ZZxaKJRs");
 		
 		lstMovies.add(theBFG);
 	}

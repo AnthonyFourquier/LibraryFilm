@@ -23,6 +23,14 @@ public class Member {
 		this.listOpinions = listOpinions;
 	}
 	
+	public Member(String login, String password) {
+		this.login = login;
+		this.password = password;
+	}
+
+	public Member() {
+	}
+
 	public long getId() {
 		return id;
 	}
