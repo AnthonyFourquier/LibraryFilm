@@ -1,9 +1,5 @@
 @charset "ISO-8859-1";
 
-   .containerCard {
-    --card-height: 300px;
-    --card-width: calc(var(--card-height) / 1.5);
-  }
    .containerCardDetail {
     --card-height: 500px;
     --card-width: calc(var(--card-height) / 1.5);
@@ -13,19 +9,11 @@
     box-sizing: border-box;
   }
 
-  .container {
+  .containerDetails {
     display: flex;
     flex-direction: column;
   }
   
-  .containerCard {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top:10%;
-    justify-content: center;
-    align-items: center;
-  }
   
   .containerCardDetail {
     display: flex;
@@ -42,7 +30,7 @@
     align-items: center;
   }
 
-  .title {
+  .titleDetails {
     color: white;
     text-decoration: none;
     font-family: 'Playfair', serif;
@@ -55,19 +43,11 @@
     text-decoration: none;
   }
 
-  body {
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    justify-content: center;
-    align-items: center;
-    background: #191c29;
-  }
   
   .cardCustom {
     margin-bottom:5%;
   }
-  .card {
+  .cardDetails {
     width: var(--card-width);
     height: var(--card-height);
     position: relative;
@@ -85,15 +65,15 @@
     object-fit: cover;
   }
 
-  .wrapper {
+  .wrapperDetails {
     transition: all 0.5s;
     position: absolute;
     width: 100%;
     z-index: -1;
   }
 
-  .wrapper::before,
-  .wrapper::after {
+  .wrapperDetails::before,
+  .wrapperDetails::after {
     content: "";
     opacity: 0;
     width: 100%;
@@ -103,7 +83,7 @@
     left: 0;
   }
 
-  .wrapper::before {
+  .wrapperDetails::before {
     top: 0;
     height: 100%;
     background-image: linear-gradient(to top,
@@ -112,7 +92,7 @@
         rgba(12, 13, 19) 97%);
   }
 
-  .wrapper::after {
+  .wrapperDetails::after {
     bottom: 0;
     opacity: 1;
     background-image: linear-gradient(to bottom,
@@ -121,48 +101,48 @@
         rgba(12, 13, 19) 97%);
   }
 
-  .card:hover .wrapper::before,
-  .wrapper::after {
+  .cardDetails:hover .wrapperDetails::before,
+  .wrapperDetails::after {
     opacity: 1;
   }
 
-  .card:hover .wrapper::after {
+  .cardDetails:hover .wrapperDetails::after {
     height: 120px;
   }
 
-  .title {
+  .titleDetails {
     width: 100%;
     transition: transform 0.5s;
 
   }
 
-  .card:hover .title {
+  .cardDetails:hover .titleDetails {
     transform: translate3d(0%, -50px, 100px);
     z-index: 10;
     text-shadow: black 0.1em 0.1em 0.2em
   }
-  .card:hover .wrapper {
+  .cardDetails:hover .wrapperDetails {
   	opacity: 0.3;
   	z-index:0;
   }
   
-  .duration, .year, .synopsis {
+   .duration, .year, .synopsis {
   	opacity: 0;
   }
   
-  .card:hover .duration, .card:hover .year, .card:hover .synopsis {
+  .cardDetails:hover .duration, .cardDetails:hover .year, .cardDetails:hover .synopsis {
   	opacity: 1;
   }
-  .card:hover .details{
+  .cardDetailsDetails:hover .details{
   	display:none;
   }
 
-  .cardTitle {
+  .cardTitleDetails {
   font-size: 35px;
   letter-spacing: 1px;
 
   }
-  .director {
+  .directorDetails {
   padding-top:5px;
   font-size: 20px;
   }	

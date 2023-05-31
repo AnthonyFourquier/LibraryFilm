@@ -9,8 +9,8 @@
       </div>
     </div>
     <div class="form">
-      <form action="/movie" th:object="${formMovie}" method="post">
-        <div class="title">
+      <form action="/movieEdit" th:object="${formMovie}" method="post">
+        <div class="titleEdit">
           <div class="label">
             Title :
           </div>
@@ -18,18 +18,34 @@
             <input th:field="${movie.title}" />
           </div>
         </div>
-
-        <div class="director">
-          <div class="label">
-            Director :
+        
+        <div class="containerGenreDirector">
+          <div class="genreEdit">
+            <div class="label">
+              Genre :
+            </div>
+            <div>
+              <select th:field="${movie.genre}" multiple>
+                <option th:each="genre : ${genreOption}" th:value="${genre.id}" th:text="${genre.label}"></option>
+              </select>
+            </div>
           </div>
-          <div>
-            <input th:field="${movie.director.lastName}" />
-            <input th:field="${movie.director.firstName}" />
+    
+          <div class="directorEdit">
+            <div class="label">
+              Director :
+            </div>
+            <div>
+              <select th:field="${movie.director}" multiple>
+                <option th:each="director : ${directorOption}" th:value="${director.id}"
+                  th:text="${director.lastName + ' ' +  director.firstName}"></option>
+              </select>
+            </div>
           </div>
         </div>
+        
 
-        <div class="year">
+        <div class="yearEdit">
           <div class="label">
             Année :
           </div>
@@ -38,7 +54,7 @@
           </div>
         </div>
 
-        <div class="duration">
+        <div class="durationEdit">
           <div class="label">
             Durée :
           </div>
@@ -47,7 +63,7 @@
           </div>
         </div>
 
-        <div class="synopsis">
+        <div class="synopsisEdit">
           <div class="label">
             Synopsis :
           </div>
@@ -56,7 +72,7 @@
           </div>
         </div>
 
-      </form>
+      
     </div>
 
     <div class="btnContainer">
@@ -65,9 +81,10 @@
           th:href="@{/detailMovie/{id}(id=${movie.id})}">Retour</a>
       </div>
       <div class="btn2">
-        <a class="btn" style="--color:white;--border:2px;--slant:.5em" th:href="@{/}">Valider</a>
+        <button class="btn" type="submit" style="--color:white;--border:2px;--slant:.5em" >Valider</button>
       </div>
     </div>
+  </form>
   </div>
 
 </body>

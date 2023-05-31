@@ -1,4 +1,4 @@
-package fr.eni.movielibrary.ihm;
+package fr.eni.movielibrary.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +15,7 @@ import fr.eni.movielibrary.bo.Member;
 @SessionAttributes({"loggedUser"})
 public class MemberController {
 	
-	@PostMapping("/loginAfter")
+	@PostMapping("/login")
 	public String login(Model model, @ModelAttribute("formLogin") Member member) {
 		
 		//TODO effectuer le check si existe avec bdd
@@ -28,13 +28,17 @@ public class MemberController {
 	@GetMapping("/logout")
 	public String logout(SessionStatus sessionStatus) {
 		sessionStatus.setComplete();
-		return "home";
+		return "redirect:/";	
 	}
 	
-	@GetMapping("/loginBefore")
+	@GetMapping("/loginForm")
     public String loginPage(Model model) {
-		model.addAttribute("member", new Member());
-        return "login";
+		if (model.getAttribute("loggedUser") != null) {
+			return "redirect:/";
+		} else {
+			model.addAttribute("member", new Member());
+	        return "login";
+		}
     }
 	
 }

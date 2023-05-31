@@ -15,6 +15,16 @@ public class Opinion {
 		this.member = member;
 	}
 	
+	public Opinion(long id, int note, String comment, Movie movie) {
+		this.id = id;
+		this.note = note;
+		this.comment = comment;
+		this.movie = movie;
+	}
+	
+	public Opinion() {
+	}
+
 	public Member getMember() {
 		return member;
 	}

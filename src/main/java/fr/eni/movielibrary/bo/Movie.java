@@ -30,12 +30,30 @@ public class Movie {
 	}
 
 	public Movie(long id, String title, int year, int duration, String synopsis) {
-		super();
 		this.id = id;
 		this.title = title;
 		this.year = year;
 		this.duration = duration;
 		this.synopsis = synopsis;
+	}
+	
+	public Movie(String title, int year, int duration, String synopsis) {
+		this.title = title;
+		this.year = year;
+		this.duration = duration;
+		this.synopsis = synopsis;
+	}
+	
+	public Movie(long id, String title, int year, int duration, String synopsis, Participant director) {
+		this.title = title;
+		this.year = year;
+		this.duration = duration;
+		this.synopsis = synopsis;
+		this.director = director;
+	}
+	
+	public Movie() {
+		
 	}
 	
 	public String getImage2() {

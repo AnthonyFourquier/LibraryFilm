@@ -13,12 +13,13 @@
 </head>
 
 <body>
-<details>
-    <summary class="title">Menu</summary>
+  <details>
+    <summary class="nameMenu">Menu</summary>
     <nav class="menu">
-      <a href="#link">Home</a>
-      <a href="#link">Login</a>
-      <a href="#link">Logout</a>
+      <a th:href="@{/}">Home</a>
+      <a th:if="${loggedUser != null}" th:href="@{/addMovie}">Add Movie</a>  
+      <a th:if="${loggedUser != null}" th:href="@{/logout}">Logout</a>
+      <a th:if="${loggedUser == null}" th:href="@{/loginForm}">Login</a>
       <a href="#link">Contact</a>
       <a href="#link">About</a>
     </nav>

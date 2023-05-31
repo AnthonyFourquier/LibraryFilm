@@ -39,6 +39,10 @@
 	color: #191c29;
 }
 
+.email, .password{
+	margin-bottom: 10%;
+}
+
 .label {
 	padding-bottom: 5px;
 }
@@ -68,18 +72,21 @@ textarea:focus {
 	border-bottom: 1px solid #e74c3c;
 }
 
-.title, .duration, .year, .synopsis, .director {
+.titleEdit, .durationEdit, .yearEdit, .synopsisEdit, .directorEdit, .genreEdit {
 	display: flex;
 	flex-direction: column;
 	padding-top: 20px;
 }
-body {
-	width: 100vw;
-	height: 100vh;
-	margin: 0;
-	justify-content: center;
-	align-items: center;
-	background: #191c29;
+
+.containerGenreDirector {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+select {
+	border: none;
+	outline: none;
 }
 
 

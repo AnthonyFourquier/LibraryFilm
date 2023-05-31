@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <div th:include="include/header"></div>
-  <div class="container">
+  <div class="containerDetails">
     <div class="page">
       <div>
         <h1>Detail Movie</h1>
@@ -9,13 +9,13 @@
     </div>
     <div class="containerCardDetail">
       <a href="" alt="Mythrill">
-        <div class="card">
-          <div class="wrapper">
+        <div class="cardDetails">
+          <div class="wrapperDetails">
             <img th:src="${movie.image}" class="cover-image" />
           </div>
-          <div class="title">
-            <span th:text="${movie.title}" class="cardTitle"></span>
-            <div th:each="director: ${movie.director}" class="director">
+          <div class="titleDetails">
+            <span th:text="${movie.title}" class="cardTitleDetails"></span>
+            <div th:each="director: ${movie.director}" class="directorDetails">
               <span th:text="${director.lastName}"></span>
               <span th:text="${director.firstName}"></span>
             </div>
@@ -39,13 +39,19 @@
     </div>
     <div class="btnContainer">
       <div class="btn1">
-        <a class="btn" style="--color:white;--border:2px;--slant:.5em" th:href="@{/}">Retour</a>
+        <a class="btn" style="--color:white;--border:2px;--slant:.5em" th:href="@{/}">Cancel</a>
       </div>
-      <div class="btn1">
+      <div class="btn1" th:if="${loggedUser != null}">
         <a class="btn" style="--color:white;--border:2px;--slant:.5em"
-          th:href="@{/editMovie/{id}(id=${movie.id})}">Modifier</a>
+          th:href="@{/editMovie/{id}(id=${movie.id})}">Edit</a>
+      </div>
+      <div class="btn1" th:if="${loggedUser != null}">
+        <a class="btn" style="--color:white;--border:2px;--slant:.5em"
+          th:href="@{/movieRemove/{id}(id=${movie.id})}">Delete</a>
       </div>
     </div>
+
+    
   </div>
 
 </body>

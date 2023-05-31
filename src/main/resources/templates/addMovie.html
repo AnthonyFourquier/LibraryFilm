@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<div th:include="include/header"></div>
+<div class="container">
+  <div class="page">
+    <div>
+      <h1>Add Movie</h1>
+    </div>
+  </div>
+  <div class="form">
+    <form action="/movieAdd" th:object="${formMovie}" method="post">
+      <div class="titleEdit">
+        <div class="label">
+          Title :
+        </div>
+        <div class="value">
+          <input th:field="${movie.title}" />
+        </div>
+      </div>
+
+      <div class="yearEdit">
+        <div class="label">
+          Genre :
+        </div>
+        <div>
+          <select th:field="${movie.genre}" multiple>
+            <option th:each="genre : ${genreOption}" th:value="${genre.id}" th:text="${genre.label}"></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="yearEdit">
+        <div class="label">
+          Director :
+        </div>
+        <div>
+          <select th:field="${movie.director}" multiple>
+            <option th:each="director : ${directorOption}" th:value="${director.id}"
+              th:text="${director.lastName + ' ' +  director.firstName}"></option>
+          </select>
+        </div>
+      </div>
+
+      <div class="yearEdit">
+        <div class="label">
+          Année :
+        </div>
+        <div>
+          <input th:field="${movie.year}">
+        </div>
+      </div>
+
+      <div class="durationEdit">
+        <div class="label">
+          Durée :
+        </div>
+        <div>
+          <input th:field="${movie.duration}">
+        </div>
+      </div>
+
+      <div class="durationEdit">
+        <div class="label">
+          Image 1 :
+        </div>
+        <div>
+          <input th:field="${movie.image}"></input>
+        </div>
+      </div>
+
+      <div class="durationEdit">
+        <div class="label">
+          Image 2 :
+        </div>
+        <div>
+          <input th:field="${movie.image2}"></input>
+        </div>
+      </div>
+
+      <div class="synopsisEdit">
+        <div class="label">
+          Synopsis :
+        </div>
+        <div>
+          <textarea th:field="${movie.synopsis}" rows="2" cols="33"></textarea>
+        </div>
+      </div>
+  </div>
+
+  <div class="btnContainer">
+    <div class="btn1">
+      <a class="btn" style="--color:white;--border:2px;--slant:.5em" th:href="@{/}">Retour</a>
+    </div>
+    <div class="btn2">
+      <button class="btn" type="submit" style="--color:white;--border:2px;--slant:.5em">Valider</button>
+    </div>
+  </div>
+  </form>
+</div>
+
+</body>
+
+</html>
