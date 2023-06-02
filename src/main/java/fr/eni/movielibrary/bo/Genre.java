@@ -2,15 +2,33 @@ package fr.eni.movielibrary.bo;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "genres")
 public class Genre {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String label;
+	
+	@OneToMany(mappedBy = "genre")
 	private List<Movie> listMovie;
 	
 	public Genre(long id, String label, List<Movie> listMovie) {
 		this.id = id;
 		this.label = label;
 		this.listMovie = listMovie;
+	}
+	
+	public Genre() {
+		
 	}
 	
 	public Genre(long id, String label) {

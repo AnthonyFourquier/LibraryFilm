@@ -2,39 +2,42 @@
 <html>
 
 <div th:include="include/header"></div>
-    <div class="container">
-        <div class="page">
-            <div>
-                <h1>Login</h1>
-            </div>
+<div class="container">
+    <div class="page">
+        <div>
+            <h1>Login</h1>
         </div>
-        <div class="form">
-            <form action="/login" th:object="${formLogin}" method="post">
-                <div class="email">
-                    <div class="label">
-                        Email or Pseudo :
-                    </div>
-                    <div class="value">
-                        <input th:field="${member.login}" />
-                    </div>
+    </div>
+    <div class="form">
+        <form action="/login" th:object="${formLogin}" method="post">
+            <div class="email">
+                <div class="label">
+                    Email or Pseudo :
                 </div>
-
-                <div class="Password">
-                    <div class="label">
-                        Password :
-                    </div>
-                    <div>
-                        <input type="password" th:field="${member.password}" />
-                    </div>
+                <div class="value">
+                    <input th:field="${member.login}" />
                 </div>
-        </div>
-        <div class="btnContainer">
-            <div class="btn1">
-                <button class="btn" type="submit" style="--color:white;--border:2px;--slant:.5em">Validate</button>
             </div>
-        </div>
-        </form>
 
-</body>
+            <div class="Password">
+                <div class="label">
+                    Password :
+                </div>
+                <div>
+                    <input type="password" th:field="${member.password}" />
+                </div>
+            </div>
+    </div>
+    <div class="btnContainer">
+        <div class="btn1">
+            <button class="btn" type="submit" style="--color:white;--border:2px;--slant:.5em">Validate</button>
+        </div>
+    </div>
+    </form>
+    <div class="containerError" th:if="${message != null}">
+        <h2 class="error" th:text="${message}"></h2>
+    </div>
+</div>
+    </body>
 
 </html>

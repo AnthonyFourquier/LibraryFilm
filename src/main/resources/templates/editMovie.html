@@ -10,6 +10,7 @@
     </div>
     <div class="form">
       <form action="/movieEdit" th:object="${formMovie}" method="post">
+        <input th:field="${movie.id}" type="hidden">
         <div class="titleEdit">
           <div class="label">
             Title :

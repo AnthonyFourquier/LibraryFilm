@@ -2,13 +2,27 @@ package fr.eni.movielibrary.bo;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "members")
 public class Member {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String lastName;
 	private String firstName;
 	private String login;
 	private String password;
 	private boolean isAdmin;
+	
+	@OneToMany(mappedBy = "member")
 	private List<Opinion> listOpinions;
 	
 	public Member(long id, String lastName, String firstName, String login, String password, boolean isAdmin,
@@ -29,6 +43,10 @@ public class Member {
 	}
 
 	public Member() {
+	}
+
+	public Member(String login) {
+		this.login = login;
 	}
 
 	public long getId() {

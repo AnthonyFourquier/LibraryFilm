@@ -2,11 +2,29 @@ package fr.eni.movielibrary.bo;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "participants")
 public class Participant {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	private String lastName;
 	private String firstName;
+	
+	@OneToMany(mappedBy = "director")
 	private List<Movie> listDirectors;
+	
+	@ManyToMany(mappedBy = "listActors")
 	private List<Movie> listActors;
 	
 	public Participant(long id, String lastName, String firstName,  List<Movie> listDirectors, List<Movie> listActors) {
@@ -23,7 +41,9 @@ public class Participant {
 		this.lastName = lastName;
 		this.firstName = firstName;
 	}
-
+	
+	public Participant() {
+	}
 
 
 	public List<Movie> getListActors() {

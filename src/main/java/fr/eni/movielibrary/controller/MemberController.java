@@ -1,5 +1,9 @@
 package fr.eni.movielibrary.controller;
 
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,7 +11,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import fr.eni.movielibrary.bll.MemberService;
 import fr.eni.movielibrary.bo.Member;
 
 
@@ -15,14 +21,20 @@ import fr.eni.movielibrary.bo.Member;
 @SessionAttributes({"loggedUser"})
 public class MemberController {
 	
+	@Autowired
+	private MemberService memberService;
+	
 	@PostMapping("/login")
-	public String login(Model model, @ModelAttribute("formLogin") Member member) {
+	public String login(Model model, @ModelAttribute("formLogin") Member member, RedirectAttributes redirAttrs) {
+		Optional<Member> result = this.memberService.getByLogin(member.getLogin());
 		
-		//TODO effectuer le check si existe avec bdd
-		// si oui connecter et rediriger sur home avec la session
-		// sinon renvoyer sur la route loginBefore avec message d'erreur
-		model.addAttribute("loggedUser", new Member(member.getLogin(), member.getPassword()));
-		return "redirect:/";
+		if (result.isPresent() && result.get().getPassword().equals(member.getPassword())) {
+			model.addAttribute("loggedUser", new Member(member.getLogin()));
+			return "redirect:/";
+		} else {
+			redirAttrs.addFlashAttribute("message", "Identifiant is not correct");
+			return "redirect:/loginForm";
+		}
 	}
 	
 	@GetMapping("/logout")

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import fr.eni.movielibrary.bll.GenreService;
 import fr.eni.movielibrary.bll.MovieService;
 import fr.eni.movielibrary.bo.Genre;
 
@@ -11,13 +12,11 @@ import fr.eni.movielibrary.bo.Genre;
 public class GenreConverter implements Converter<String, Genre> {
 	
 	@Autowired
-	MovieService movieService;
+	GenreService genreService;
 
 	@Override
 	public Genre convert(String id) {
-		return movieService.getGenreById(Integer.parseInt(id));
+		return genreService.getGenre(Integer.parseInt(id));
 	}
-
-
 
 }

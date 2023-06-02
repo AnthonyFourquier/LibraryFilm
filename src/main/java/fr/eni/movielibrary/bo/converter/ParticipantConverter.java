@@ -5,6 +5,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import fr.eni.movielibrary.bll.MovieService;
+import fr.eni.movielibrary.bll.ParticipantService;
 import fr.eni.movielibrary.bo.Genre;
 import fr.eni.movielibrary.bo.Participant;
 
@@ -12,11 +13,11 @@ import fr.eni.movielibrary.bo.Participant;
 public class ParticipantConverter implements Converter<String, Participant> {
 	
 	@Autowired
-	MovieService movieService;
+	ParticipantService participantService;
 
 	@Override
 	public Participant convert(String id) {
-		return movieService.getParticipantById(Integer.parseInt(id));
+		return participantService.getParticipant(Integer.parseInt(id));
 	}
 
 

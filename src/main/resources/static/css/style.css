@@ -162,4 +162,11 @@
   padding-bottom:15px;
   font-size: 15px;
   }	
+  .containerError {
+  display: flex;
+  justify-content: center;
+  }
+  .error {
+  	color: red;
+  }
   

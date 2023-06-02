@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import fr.eni.movielibrary.bll.mock.MovieServiceMock;
+import fr.eni.movielibrary.bll.GenreService;
+import fr.eni.movielibrary.bll.MovieService;
+import fr.eni.movielibrary.bll.ParticipantService;
 import fr.eni.movielibrary.bo.Member;
 import fr.eni.movielibrary.bo.Movie;
 import fr.eni.movielibrary.bo.Opinion;
@@ -19,7 +21,13 @@ import fr.eni.movielibrary.bo.Opinion;
 public class MovieController {
 	
 	@Autowired
-	private MovieServiceMock movieServiceMock;
+	private MovieService movieService;
+	
+	@Autowired
+	private GenreService genreService;
+	
+	@Autowired
+	private ParticipantService participantService;
 	
 	@GetMapping("/")
     public String homePage(Model model) {
@@ -29,14 +37,14 @@ public class MovieController {
 			model.addAttribute("member", memberConnected);
 		}
 		
-        model.addAttribute("movies", movieServiceMock.getAllMovies());
+        model.addAttribute("movies", movieService.getMovies());
         
         return "home";
     }
 	
 	@GetMapping("/detailMovie/{id}")
     public String detailMoviePage(Model model, @PathVariable("id") int id) {
-		model.addAttribute("movie", movieServiceMock.getMovieById(id));
+		model.addAttribute("movie", movieService.getMovie(id));
 		model.addAttribute("opinion", new Opinion());
         return "detailMovie";
     }
@@ -44,10 +52,10 @@ public class MovieController {
 	@GetMapping("/editMovie/{id}")
     public String editMoviePage(Model model, @PathVariable("id") int id) {
 		if (model.getAttribute("loggedUser") != null) {
-			Movie movie =  movieServiceMock.getMovieById(id);
+			Movie movie =  movieService.getMovie(id);
 			model.addAttribute("movie", movie);
-			model.addAttribute("genreOption", movieServiceMock.getGenres());
-			model.addAttribute("directorOption", movieServiceMock.getParticipants());
+			model.addAttribute("genreOption", genreService.getGenres());
+			model.addAttribute("directorOption", participantService.getParticipants());
 	        return "editMovie";
 		} else {
 			return "redirect:/";
@@ -57,7 +65,7 @@ public class MovieController {
 	
 	@PostMapping("/movieEdit")
 	public String movieEditSubmit(@ModelAttribute("formMovie") Movie movie, Model model) {
-		movieServiceMock.editMovie(movie);
+		movieService.save(movie);
 		return "redirect:/";
 	}
 	
@@ -65,8 +73,8 @@ public class MovieController {
     public String movieAddPage(Model model) {
 		if (model.getAttribute("loggedUser") != null) {
 			model.addAttribute("movie", new Movie());
-			model.addAttribute("genreOption", movieServiceMock.getGenres());
-			model.addAttribute("directorOption", movieServiceMock.getParticipants());
+			model.addAttribute("genreOption", genreService.getGenres());
+			model.addAttribute("directorOption", participantService.getParticipants());
 			return "addMovie";
 		} else {
 	        return "redirect:/";
@@ -75,14 +83,14 @@ public class MovieController {
 	
 	@PostMapping("/movieAdd")
 	public String movieAddSubmit(@ModelAttribute("formMovie") Movie movie, Model model) {
-		movieServiceMock.saveMovie(movie);
+		movieService.save(movie);
 		return "redirect:/";
 	}
 	
 	@GetMapping("/movieRemove/{id}")
 	public String movieRemoveSubmit(Model model, @PathVariable("id") int id) {
-		Movie movie = movieServiceMock.getMovieById(id);
-		movieServiceMock.deleteMovie(movie);
+		Movie movie = movieService.getMovie(id);
+		movieService.deleteMovie(movie);
 		return "redirect:/";
 	}
 	

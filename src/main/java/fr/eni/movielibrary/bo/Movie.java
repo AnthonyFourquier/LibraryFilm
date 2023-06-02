@@ -2,16 +2,48 @@ package fr.eni.movielibrary.bo;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "movies")
 public class Movie {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private String title;
 	private int year;
 	private int duration;
 	private String synopsis;
+	
+	@ManyToOne
+    @JoinColumn(name = "director_id", nullable = false)
 	private Participant director;
+	
+	@ManyToMany
+	@JoinTable(
+	name = "actors",
+	joinColumns = @JoinColumn(name = "participant_id"),
+	inverseJoinColumns = @JoinColumn(name = "movie_id"))
 	private List<Participant> listActors;
+	
+	@OneToMany(mappedBy = "movie")
 	private List<Opinion> listOpinions;
+	
+	@ManyToOne
+    @JoinColumn(name = "genre_id", nullable = false)
 	private Genre genre;
+	
 	private String image;
 	private String image2;
 	
@@ -144,11 +176,6 @@ public class Movie {
 		this.synopsis = synopsis;
 	}
 
-	@Override
-	public String toString() {
-		return "Movie [id=" + id + ", title=" + title + ", year=" + year + ", duration=" + duration + ", synopsis="
-				+ synopsis + ", director=" + director + ", listActors=" + listActors + ", listOpinions=" + listOpinions
-				+ ", genre=" + genre + "]";
-	}
+
 	
 }
